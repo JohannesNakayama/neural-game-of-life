@@ -2,7 +2,7 @@ using NPZ
 using Random
 using IterTools
 
-function generate_training_data(grid_dims, n)
+function generate_data(grid_dims, n)
     features = generate_features(grid_dims, n)
     labels = generate_labels(features)
     features = convert_to_tensor(features)
@@ -83,13 +83,9 @@ function life_rule(current_state::Number, n_alive_neighbors::Number)
 end
 
 
-features, labels = generate_training_data((10, 10), 1000)
+features, labels = generate_data((10, 10), 1000)
 
-features = generate_features((10, 10), 1000)
-labels = generate_labels(features)
 
-# TODO: create dataset with HDF5
-using HDF5
 
 
 
